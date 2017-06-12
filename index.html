@@ -2,7 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Crystal Game</title>
+  <title>Crystals Collector</title>
+  <!-- Bootstrap CDN -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  <!-- Linking Stylesheet -->
+   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+     <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Overpass" rel="stylesheet">
 
   <!-- Bootstrap File -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -10,31 +20,118 @@
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery.js"></script>
 <style>
+h1 {
+  font-family: 'Pacifico', cursive;
+  color: black;
+  text-align: center;
+  font-size: 750%;
+}
+
 body { 
-    background: url('https://github.com/ezharandall/week-4-game/blob/master/assets/images/crystal_wallpaper2.jpg?raw=true') no-repeat center center fixed;
+    background: url('https://github.com/ezharandall/week-4-game/blob/master/assets/images/loose-crystals_lrg.jpg?raw=true') no-repeat center center fixed;
     -moz-background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 } 
+div {
+    background-color: white;
+  }
+
+.instructions{
+    background-color: white;
+    margin: 50px 50px 50px 50px;
+    text-align: center;
+    font-family: 'Overpass', sans-serif;
+    font-weight: bold;
+  }
+
+.answer, .score{
+  float: left;
+  margin: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
+  height: 200px;
+  width: 200px;
+  text-align: center;
+  font-family: 'Overpass', sans-serif;
+}
+
+.thirdRow{
+  margin-right: 30px;
+  margin-left: 90px;
+}
+
+
+#one, #two, #three, #four{
+  float: left;
+  height: 200px;
+  width: 200px;
+  margin: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
+}
+
+.actual {
+  clear: both;
+  margin: 50px 300px 50px 300px;
+  padding: 10px 10px 10px 10px;
+  text-align: center;
+
+}
+
+
 </style>
 </head>
 <body>
 
-<p>Click the button to display a random number between 19 and 120.</p>
+<div><h1>Crystals Collector</h1></div>
 
-<input type="image" name="submit" value="submit" src="images/button.gif" />
+<div class="instructions"><p>You'll be given a random number at the start of the game.</p>
 
-<button onclick="firstCrystal()">Try it</button>
+<p>There are four crystals below. By clicking on a crystal, you will ad a specific amount of points to your total score.</p>
 
-<p id="demo"></p>
+<p>You win the game by matching your total score to the random number. You lose the game if your total score goes above the random number.</p>
 
-<script>
-function firstCrystal() {
+<p>The value of each crystal is hidden from you until you click on it.</p>
+
+<p>Each time when the game starts, the game will change the values of each crystal.</p></div>
+
+<div class="thirdRow">
+
+<div class="answer">
+    <h2>Match this Number:
+      <span id= "randomNumber"></span>
+    </h2>
+  </div>
+  <div class="score">
+    <h2>Wins:
+      <span id= "scoreWins"></span>
+      </br>
+      Losses: 
+      <span id= "scoreLosses"></span>
+    </h2>
+  </div>
+
+  <div class="crystals">
+    <img data-num="1" src="assets/images/red_crystal.jpg" id="one" alt="red_crystal">
+    <img data-num="2" src="assets/images/clear_crystal.jpg" id="two" alt="clear_crystal">
+    <img data-num="3" src="assets/images/blue_crystal.jpg" id= "three" alt="clear_crystal">
+    <img data-num="4" src="assets/images/black_crystal.jpg" id= "four" alt="black_crystal">
+  </div>
+  </div>
+
+<!-- <script>
+function redCrystal() {
     var x = Math.floor((Math.random() * 120) + 19);
     document.getElementById("demo").innerHTML = x;
 }
-  </script>
+  </script> -->
+<div class="actual">
+    <h2>Your total score is:
+      <span id="actualTotal"></span>
+    </h2>
+  </div>
 
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+  <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
 </html>
